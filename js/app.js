@@ -97,8 +97,7 @@ const createPost = (post) => {
 
                   <div class="post__indicators"></div>
 
-                  <button class="post__button post__button--align-right" onclick="reportPost(${post.id
-    })">
+                  <button class="post__button post__button--align-right" onclick="reportPost(${post.id})">
                     <i class="fa-solid fa-ban"></i>
                   </button>
                 </div>
@@ -152,10 +151,12 @@ const displayLikedPosts = () => {
 };
 
 const displayReportedPosts = () => {
+  const displayReportedId = document.getElementById("reported");
   const reportedPosts = getReportedPosts();
-  posts.forEach((post) => {
+  reportedPosts.forEach((post) => {
     const div = createPost(post);
-    document.getElementById("reported").appendChild(div);
+    displayReportedId.innerHTML = "";
+    displayReportedId.appendChild(div);
   });
 };
 
